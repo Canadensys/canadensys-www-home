@@ -1,2 +1,2 @@
-# canadensys_www_home
-The static canadensys home page
+# Static home page for Canadensys
+The static canadensys home page with links to community and data

@@ -1,0 +1,630 @@
+<!doctype html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=UTF-8">
+    <title>Canadensys Data / Données de Canadensys</title>
+    <link href="http://layout.canadensys.net/common/js/jquery-ui-1.12.1/jquery-ui.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="http://layout.canadensys.net/common/bootstrap3/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="http://layout.canadensys.net/common/bootstrap3/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" type="text/css" href="http://layout.canadensys.net/commonui-bs3/css/ala-styles.css">
+    <link rel="stylesheet" type="text/css" href="http://layout.canadensys.net/common/css/alc-styles-bs3.css">
+    <link rel="stylesheet" type="text/css" href="./css/canadensys.css">
+    <link rel="icon" href="http://layout.canadensys.net/common/images/favicon.ico" sizes="16x16 32x32 48x48 64x64" type="image/vnd.microsoft.icon">
+  </head>
+  <body>
+        <div id="feedback_bar" class="hidden-xs">
+            <a href="https://github.com/Canadensys/Canadensys-Website-Issues/issues/new" target="_blank" title="Rapportez un problème">&nbsp;</a>
+        </div>
+
+        <div id="general-header" class="col-xs-12 text-center">
+            <div id="header" class="col-sm-8 col-sm-offset-2 col-xs-12">
+                <div class="row hidden-xs">
+                    <div class="col-xs-6">
+                        <a href="http://www.canadensys.net">
+                            <img class="img-responsive image-header" src="http://layout.canadensys.net/common/images/canadensys_logo_simple_white.png" alt="Canadensys">
+                            <span id="header-canadensys">Canadensys</span>
+                        </a>
+                    </div>
+                    <div class="col-xs-4">
+                    </div>
+                    <div id="lang-selector" class="col-xs-1">
+                        <button id="en-lang" type="button" class="btn btn-default btn-lang fr">English</button>
+                        <button id="fr-lang" type="button" class="btn btn-default btn-lang en">Français</button>
+                    </div>
+                </div>
+                <div class="row visible-xs">
+                    <div class=" col-xs-12 text-center">
+                        <div class="navbar-header-sub">
+                            <a class="navbar-brand" href="#">
+                                <img class="img-responsive image-header-xs" src="http://layout.canadensys.net/common/images/canadensys_logo_simple_white.png" alt="Canadensys">
+                                <span id="header-canadensys-xs">Canadensys</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="menu-nav" class="col-sm-8 col-sm-offset-2 col-xs-12">
+                <nav class="navbar navbar-default">
+                    <div class="container-fluid">
+                        <div class="navbar-header">
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                    </button>
+                                </div>
+                                <div class="col-xs-4 visible-xs"></div>
+                                <div id="lang-selector-xs" class="col-xs-4 visible-xs">
+                                    <button id="en-lang-xs" type="button" class="btn btn-default btn-lang btn-lang-xs fr">En</button>
+                                    <button id="fr-lang-xs" type="button" class="btn btn-default btn-lang btn-lang-xs en">Fr</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="collapse navbar-collapse" id="navbar-collapse">
+                            <ul class="col-xs-12 nav navbar-nav visible-xs">
+                              <li class="col-sm-6 col-xs-12 active">
+                                <a class="nav-link active" id="community-tab" data-toggle="tab" href="#community" role="tab" aria-controls="community" aria-selected="true">
+                                  <span class="en">Community</span>
+                                  <span class="fr">Communauté</span>
+                                </a>
+                              </li>
+                              <li class="col-sm-6 col-xs-12">
+                                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#data" role="tab" aria-controls="data" aria-selected="false">
+                                  <span class="en">Data</span>
+                                  <span class="fr">Données</span>
+                                </a>
+                              </li>
+                            </ul>
+                            <ul class="col-xs-12 nav navbar-nav hidden-xs">
+                              <li class="col-sm-6 col-xs-12 active">
+                                <a class="nav-link active" id="community-tab" data-toggle="tab" href="#community" role="tab" aria-controls="community" aria-selected="true">
+                                  <span class="en">Community</span>
+                                  <span class="fr">Communauté</span>
+                                </a>
+                              </li>
+                              <li class="col-sm-6 col-xs-12">
+                                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#data" role="tab" aria-controls="data" aria-selected="false">
+                                  <span class="en">Data</span>
+                                  <span class="fr">Données</span>
+                                </a>
+                              </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    <div id="container" class="col-sm-10 col-sm-offset-1 col-xs-12">
+      <div class="emptyspace col-xs-12" style="height:20px;"></div>
+      <noscript>
+          <div class="en noscriptmsg">
+              <span class="en">You don't have javascript enabled. This page will not work without javascript because it use javascript in its forms.</span>
+              <span class="fr">Javascript n'est pas activé. Cette page ne fonctionnera pas sans Javascript car elle l'utilise dans les formulaires de recherche.</span>
+          </div>
+      </noscript>
+      <div class="row">
+        <!-- Nav tabs -->
+        <!--
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+          <li class="nav-item  col-xs-6">
+            <a class="nav-link active" id="community-tab" data-toggle="tab" href="#community" role="tab" aria-controls="community" aria-selected="true">Community</a>
+          </li>
+          <li class="nav-item  col-xs-6">
+            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#data" role="tab" aria-controls="data" aria-selected="false">Data</a>
+          </li>
+        </ul>
+        -->
+        <!-- Tab panes -->
+        <div class="tab-content">
+          <!-- Community PART -->
+          <div class="tab-pane active" id="community" role="tabpanel" aria-labelledby="community-tab">
+            <div class="row">
+              <div class="col-md-9 col-xs-12">
+                <!-- Canadensys Community -->
+                <div class="col-sm-10 col-sm-offset-1 col-xs-12">
+                  <!--<div class="col-sm-9 col-xs-12">-->
+                    <a class="en index_link" href="http://community.canadensys.net/?lang=en">
+                      <h1 class="search">Welcome to Canadensys</h1>
+                    </a>
+                    <div class="en thumbnail">
+                      <p>Canadensys makes biodiversity information freely and openly available to everyone. We are a network of researchers, collectors, curators, information technologists, students, and educators that shares data on the occurrence and identity of plant, animal, and fungi, and other species in Canada.</p>
+                      <p>We are active members of the <a href= "http://www.cbif.gc.ca/home_e.php">Canadian Biodiversity Information Facility (CBIF)</a> and the <a href="http://www.gbif.org/">Global Biodiversity Information Facility (GBIF)</a>.</p>
+                      <a class="en index_link" href="http://community.canadensys.net/?lang=en">
+                        <img class="img-responsive" src="http://layout.canadensys.net/common/images/3-kingdoms.jpg" alt="Canadensys Community">
+                      </a>
+                    </div>
+                    <a class="fr index_link" href="http://community.canadensys.net/?lang=fr">
+                      <h1 class="search">Bienvenue à Canadensys</h1>
+                    </a>
+                    <div class="fr thumbnail">
+                      <p>Canadensys a pour mission de rendre l’information sur la biodiversité accessible à tous. Nous sommes un réseau de chercheurs, collectionneurs, conservateurs, informaticiens, étudiants et enseignants visant à partager l’information sur les plantes, animaux, champignons et d’autres espèces au Canada.</p>
+                      <p>Nous participons activement au <a href="http://www.scib.gc.ca/home_f.php">Système canadien d’information sur la biodiversité (SCIB)</a> et au système international d’information sur la biodiversité (<a href="http://www.gbif.org/">Global Biodiversity Information Facility, ou GBIF</a>).</p>
+                      <a class="fr index_link" href="http://community.canadensys.net/?lang=fr">
+                        <img class="img-responsive" src="http://layout.canadensys.net/common/images/3-kingdoms.jpg" alt="communauté Canadensys">
+                    </a>
+                    </div>
+                  <!--</div>-->
+                </div>
+              </div>
+              <div class="col-md-3 hidden-sm hidden-xs">
+                <div id="twitter" class="en">
+                  <h5 class="text-center">Follow Us On Twitter</h5>
+                  <a class="en twitter-timeline" href="https://twitter.com/canadensys" height="450" data-widget-id="353178444722487296">Tweets by @canadensys</a>
+                    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+                </div>
+                <div id="twitter" class="fr">
+                  <h5 class="text-center">Suivez nous sur Twitter</h5>
+                  <a class="fr twitter-timeline" href="https://twitter.com/canadensys" height="450" data-widget-id="353178444722487296">Tweets de @canadensys</a>
+                    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+                </div>
+              </div>
+              <div class="emptyspace col-xs-12" style="height:20px;"></div>
+              <div class="col-md-9 col-xs-12">
+                <!-- ABOUT -->
+                <div class="col-lg-2 col-md-4 col-sm-4 col-xs-6">
+                  <a class="en index_link" href="http://community.canadensys.net/about?lang=en">
+                    <div class="home_box">
+                      <h2 class="search h2box">about</h2>
+                    </div>
+                    <div class="thumbnail">
+                      <img class="img-responsive" src="http://layout.canadensys.net/common/images/home/about_us.png" alt="About">
+                    </div>
+                  </a>
+                  <a class="fr index_link" href="http://community.canadensys.net/about?lang=fr">
+                    <div class="home_box">
+                      <h2 class="search h2box">à propos</h2>
+                    </div>
+                    <div class="thumbnail">
+                        <img class="img-responsive" src="http://layout.canadensys.net/common/images/home/about_us.png" alt="A propos">
+                    </div>
+                  </a>
+                </div>
+                <!-- CONTACT -->
+                <div class="col-lg-2 col-md-4 col-sm-4 col-xs-6">
+                  <a class="en index_link" href="http://community.canadensys.net/about/contact?lang=en">
+                    <div class="home_box">
+                      <h2 class="search h2box">contact us</h2>
+                    </div>
+                    <div class="thumbnail">
+                      <img class="img-responsive" src="http://layout.canadensys.net/common/images/home/contact_us.png" alt="Contact us">
+                    </div>
+                  </a>
+                  <a class="fr index_link" href="http://community.canadensys.net/about/contact?lang=fr">
+                    <div class="home_box">
+                      <h2 class="search h2box">contactez-nous</h2>
+                    </div>
+                    <div class="thumbnail">
+                      <img class="img-responsive" src="http://layout.canadensys.net/common/images/home/contact_us.png" alt="Contactez-vous">
+                    </div>
+                  </a>
+                </div>
+                <!-- DIGITIZATION -->
+                <div class="col-lg-2 col-md-4 col-sm-4 col-xs-6">
+                  <a class="en index_link" href="http://community.canadensys.net/digitization?lang=en">
+                    <div class="home_box">
+                      <h2 class="search h2box">digitization</h2>
+                    </div>
+                    <div class="thumbnail">
+                      <img class="img-responsive" src="http://layout.canadensys.net/common/images/home/digitization.png" alt="Digitization">
+                    </div>
+                  </a>
+                  <a class="fr index_link" href="http://community.canadensys.net/digitization?lang=fr">
+                    <div class="home_box">
+                      <h2 class="search h2box">numérisation</h2>
+                    </div>
+                    <div class="thumbnail">
+                      <img class="img-responsive" src="http://layout.canadensys.net/common/images/home/digitization.png" alt="Numérisation">
+                    </div>
+                  </a>
+                </div>
+                <!-- PUBLICATION -->
+                <div class="col-lg-2 col-md-4 col-sm-4 col-xs-6">
+                  <a class="en index_link" href="http://community.canadensys.net/publication?lang=en">
+                    <div class="home_box">
+                      <h2 class="search h2box">data publication</h2>
+                    </div>
+                    <div class="thumbnail">
+                      <img class="img-responsive" src="http://layout.canadensys.net/common/images/home/publication.png" alt="Publication">
+                    </div>
+                  </a>
+                  <a class="fr index_link" href="http://community.canadensys.net/publication?lang=fr">
+                    <div class="home_box">
+                      <h2 class="search h2box">publication de données</h2>
+                    </div>
+                    <div class="thumbnail">
+                      <img class="img-responsive" src="http://layout.canadensys.net/common/images/home/publication.png" alt="Publication">
+                    </div>
+                  </a>
+                </div>
+                <!-- ACTIVITIES -->
+                <div class="col-lg-2 col-md-4 col-sm-4 col-xs-6">
+                  <a class="en index_link" href="http://community.canadensys.net/activities?lang=en">
+                    <div class="home_box">
+                      <h2 class="search h2box">activities</h2>
+                    </div>
+                    <div class="thumbnail">
+                      <img class="img-responsive" src="http://layout.canadensys.net/common/images/home/activity.png" alt="Activities">
+                    </div>
+                  </a>
+                  <a class="fr index_link" href="http://community.canadensys.net/activities?lang=fr">
+                    <div class="home_box">
+                      <h2 class="search h2box">activité</h2>
+                    </div>
+                    <div class="thumbnail">
+                      <img class="img-responsive" src="http://layout.canadensys.net/common/images/home/activity.png" alt="Activité">
+                    </div>
+                  </a>
+                </div>
+                <!-- BLOG -->
+                <div class="col-lg-2 col-md-4 col-sm-4 col-xs-6">
+                  <a class="en index_link" href="http://community.canadensys.net/blog?lang=en">
+                    <div class="home_box">
+                      <h2 class="search h2box">blog</h2>
+                    </div>
+                    <div class="thumbnail">
+                      <img class="img-responsive" src="http://layout.canadensys.net/common/images/home/blog.png" alt="Blog">
+                    </div>
+                  </a>
+                  <a class="fr index_link" href="http://community.canadensys.net/blog?lang=fr">
+                    <div class="home_box">
+                      <h2 class="search h2box">blog</h2>
+                    </div>
+                    <div class="thumbnail">
+                      <img class="img-responsive" src="http://layout.canadensys.net/common/images/home/blog.png" alt="Blog">
+                    </div>
+                  </a>
+                </div>
+                <!--</div>-->
+              </div>
+              <div class="col-md-3 col-xs-12">
+                <div class="col-xs-12">
+                <!--<div class="col-sm-3 col-xs-12">-->
+                  <div class="home_box">
+                    <h2 class="en search h2box">Support</h2>
+                    <h2 class="fr search h2box">Soutien</h2>
+                  </div>
+                  <div class="col-md-6 col-sm-3 col-xs-3">
+                    <a href="https://www.innovation.ca/">
+                      <img class="img-responsive" src="http://layout.canadensys.net/common/images/home/funding/logo_FCI.png" alt="FCI">
+                    </a>
+                  </div>
+                  <div class="col-md-6 col-sm-3 col-xs-3">
+                    <a href="http://nserc-crsng.gc.ca/">
+                      <img class="img-responsive" src="http://layout.canadensys.net/common/images/home/funding/Logo_CRSNG.png" alt="CRSNG">
+                    </a>
+                  </div>
+                  <div class="col-md-6 col-sm-3 col-xs-3">
+                    <a href="https://www.umontreal.ca/">
+                      <img class="img-responsive" src="http://layout.canadensys.net/common/images/home/funding/Universite_de_Montreal_logo.png" alt="UdeM">
+                    </a>
+                  </div>
+                  <div class="col-md-6 col-sm-3 col-xs-3">
+                    <a href="https://www.gbif.org/">
+                      <img class="img-responsive" src="http://layout.canadensys.net/common/images/home/funding/GBIF-2015-full-stacked-display.png" alt="GBIF">
+                    </a>
+                  </div>
+                  <div class="col-md-6 col-sm-3 col-xs-3">
+                    <a href="https://www.computecanada.ca/">
+                      <img class="img-responsive" src="http://layout.canadensys.net/common/images/home/funding/compute_canada.png" alt="Compute Canada">
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- DATA PART -->
+          <div class="tab-pane" id="data" role="tabpanel" aria-labelledby="data-tab">
+            <div class="row">
+              <!-- Explorer -->
+              <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="en">
+                  <a class="index_link" href="http://explorer.canadensys.net/occurrences/search?lang=en&taxa=#tab_mapView">
+                    <h2 class="search">Explorer</h2>
+                    <div class="thumbnail">
+                      <img class="img-responsive" src="http://layout.canadensys.net/common/images/home/canadensys_canada_map.jpg" alt="Explorer">
+                    </div>
+                  </a>
+                  <div class="thumbnail">
+                    <div class="caption col-xs-12">
+                      <p>Our Explorer includes <a href="http://collections.canadensys.net/?lang=en"><span id="totalInstitutionsEN"></span> institutions</a> and <a href="http://collections.canadensys.net/?lang=en"><span id="totalCollectionsEN"></span> collections</a>. It aggregates <a href="http://collections.canadensys.net/datasets?lang=en"><span id="totalDatasetsEN"></span> datasets</a>  that contain a total of <a href="http://explorer.canadensys.net/occurrences/search?lang=en&taxa="><span id="totalRecordEN"></span> occurrences</a>.</p>
+                      <a href="http://community.canadensys.net/2017/new-canadensys-explorer-get-to-know-it?lang=en">
+                        <button class="btn btn-primary btn-thundnail btn-minheight" role="button">Need Help? => Canadensys Explorer: get to know it!</button>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="fr">
+                  <a class="index_link" href="http://explorer.canadensys.net/occurrences/search?lang=fr&taxa=#tab_mapView">
+                    <h2 class="search">Explorateur</h2>
+                    <div class="thumbnail">
+                      <img class="img-responsive" src="http://layout.canadensys.net/common/images/home/canadensys_canada_map.jpg" alt="Explorateur">
+                    </div>
+                  </a>
+                  <div class="thumbnail">
+                    <div class="caption col-xs-12">
+                      <p>Notre explorateur se compose de <a href="http://collections.canadensys.net/?lang=fr"><span id="totalInstitutionsFR"></span> institutions</a> et <a href="http://collections.canadensys.net/?lang=fr"><span id="totalCollectionsFR"></span> collections</a>. Il rassemble <a href="http://collections.canadensys.net/datasets?lang=fr"><span id="totalDatasetsFR"></span> jeux de données</a> représentant un total de <a href="http://explorer.canadensys.net/occurrences/search?lang=fr&taxa="><span id="totalRecordFR"></span> occurrences</a>.</p>
+                      <a href="http://community.canadensys.net/2017/new-canadensys-explorer-get-to-know-it?lang=fr">
+                        <button class="btn btn-primary btn-thundnail btn-minheight" role="button">Besoin d'aide? => Explorateur Canadensys : apprenons à le connaître !</button>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-xs-6">
+                    <a href="http://www.ala.org.au/" target="_blank">
+                      <img src="http://layout.canadensys.net/common/images/home/ala-white.jpg" class="img-responsive center-block" alt="Atlas of Living Australia">
+                    </a>
+                  </div>
+                  <div class="col-xs-6">
+                    <a href="https://crowdin.com/" target="_blank">
+                      <img src="http://layout.canadensys.net/common/images/home/crowdin-white.jpg" class="img-responsive center-block" alt="Crowdin">
+                    </a>
+                  </div>
+                  <div class="col-xs-6">
+                    <a href="http://www.gbif.org/" target="_blank">
+                      <img src="http://layout.canadensys.net/common/images/home/GBIF-2015-full.jpg" class="img-responsive center-block" alt="GBIF">
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <!-- IPT -->
+              <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="en">
+                  <a class="index_link" href="http://data.canadensys.net/ipt/?request_locale=en">
+                    <h2 class="search">Repository</h2>
+                    <div class="thumbnail">
+                      <img class="img-responsive" src="http://layout.canadensys.net/common/images/home/publication.png" alt="Repository">
+                    </div>
+                  </a>
+                  <div class="thumbnail">
+                    <div class="caption col-xs-12">
+                      <p>Based on <a href="https://www.gbif.org/ipt" alt="gbif-ipt">GBIF Integrated Publishing Toolkit (IPT)</a>, the canadensys repository is a good way to publish your data if you want a fully available and updated repository.</p>
+                      <img class="img-responsive" src="http://layout.canadensys.net/common/images/home/ipt2.jpg" alt="Canadensys IPT">
+                    </div>
+                  </div>
+                </div>
+                <div class="fr">
+                  <a class="index_link" href="http://data.canadensys.net/ipt/?request_locale=fr">
+                    <h2 class="search">Dépôt</h2>
+                    <div class="thumbnail">
+                      <img class="img-responsive" src="http://layout.canadensys.net/common/images/home/publication.png" alt="Repository">
+                    </div>
+                  </a>
+                  <div class="thumbnail">
+                    <div class="caption col-xs-12">
+                      <p>Basé sur l'<a href="https://www.gbif.org/ipt" alt="gbif-ipt">IPT (Un outil intégré pour la publication des données du GBIF)</a>, le dépôt de canadensys  est un bon moyen pour publier vos données si vous rechercher un IPT à jour et accessible en tout temps.</p>
+                      <img class="img-responsive" src="http://layout.canadensys.net/common/images/home/ipt2.jpg" alt="Dépôt">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- VASCAN -->
+              <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="en">
+                  <a class="index_link" href="http://data.canadensys.net/vascan/search?lang=en">
+                    <h2 class="search">Vascan</h2>
+                    <div class="thumbnail">
+                      <img class="img-responsive" src="http://layout.canadensys.net/common/images/home/vascan.jpg" alt="Vascan">
+                    </div>
+                  </a>
+                  <div class="thumbnail">
+                    <div class="caption col-xs-12">
+                      <p>As a <b>Database of Vascular Plants of Canada</b>, VASCAN is a comprehensive list of all vascular plants reported in Canada, Greenland (Denmark) and Saint Pierre and Miquelon (France). VASCAN is literature-based and, sometimes, specimen-based for recent additions. Vascan proposes a <a href="http://data.canadensys.net/vascan/checklist?lang=en">checklist builder</a>. An API is also available (<a href="http://data.canadensys.net/vascan/api?lang=en">more about the API</a>).</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="fr">
+                  <a class="index_link" href="http://data.canadensys.net/vascan/search?lang=fr">
+                    <h2 class="search">Vascan</h2>
+                    <div class="thumbnail">
+                      <img class="img-responsive" src="http://layout.canadensys.net/common/images/home/vascan.jpg" alt="Vascan">
+                    </div>
+                  </a>
+                  <div class="thumbnail">
+                    <div class="caption col-xs-12">
+                      <p>En tant que <b>base de données des plantes vasculaires du Canada</b>, VASCAN est une liste complète des plantes vasculaires signalées au Canada, au Groënland (Danemark) et à Saint-Pierre-et-Miquelon (France). Cette base de données est fondée sur les publications disponibles ainsi que sur des spécimens pour certaines additions récentes. Vascan propose un <a href="http://data.canadensys.net/vascan/checklist?lang=fr">générateur de liste d'espèces</a>. Une API est également disponible (<a href="http://data.canadensys.net/vascan/api?lang=fr">en savoir plus sur l'API</a>).</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- TOOLS -->
+              <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="en">
+                  <a class="index_link" href="http://data.canadensys.net/tools/coordinates?lang=en">
+                    <h2 class="search">Tools</h2>
+                    <div class="thumbnail">
+                      <img class="img-responsive" src="http://layout.canadensys.net/common/images/home/tools.jpg" alt="Canadensys Tools">
+                    </div>
+                  </a>
+                  <div class="thumbnail">
+                    <div class="caption col-xs-12">
+                      <p>Canadensys tools will convert coordinates and dates to be compatible with the <a href="http://rs.tdwg.org/dwc/">Darwin Core</a> standard. An API is also available (<a href="http://data.canadensys.net/tools/api?lang=en">more about the API</a>).</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="fr">
+                  <a class="index_link" href="http://data.canadensys.net/tools/coordinates?lang=fr">
+                    <h2 class="search">Outils</h2>
+                    <div class="thumbnail">
+                      <img class="img-responsive" src="http://layout.canadensys.net/common/images/home/tools.jpg" alt="Outils de Canadensys">
+                    </div>
+                  </a>
+                  <div class="thumbnail">
+                    <div class="caption col-xs-12">
+                      <p>Les outils de Canadensys permettent de convertir des coordonnées ou des dates compatibles avec le standard <a href="http://rs.tdwg.org/dwc/">Darwin Core</a>. Ils sont tous les deux disponibles via une API (<a href="http://data.canadensys.net/tools/api?lang=fr">en savoir plus sur l'API</a>).</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Data search -->
+              <!-- 
+              <div class="row">
+                <div class="col-md-12 col-xs-12">
+                  <div class="col-md-6 col-xs-12">
+                    <div class="en col-xs-12">
+                      <form action="http://explorer.canadensys.net/occurrences/search?lang=en#tab_mapView" method="get" role="search" id="occurrences_en_form">
+                        <div class="text-center">
+                          <span class="en col-sm-9 col-xs-12">
+                            <input type="text" class="form-control input-lg" placeholder="Scientific name, vernacular name, etc." name="taxa">
+                          </span>
+                          <button class="btn btn-lg btn-secondary btn-search" type="submit" title="Search" data-toggle="tooltip" data-placement="bottom" data-original-title="Simple search"><span class="glyphicon glyphicon-search"></span></button>
+                          <a class="btn btn-lg btn-secondary btn-search" role="button" href="http://explorer.canadensys.net/search?lang=en#tab_advanceSearch" data-toggle="tooltip" data-placement="bottom" title="Advanced Search" data-original-title="Advanced Search"><span class="glyphicon glyphicon-plus"></span></a>
+                        </div>
+                      </form>
+                      <script>
+                        var dataset_fr_form = document.getElementById("occurrences_en_form");
+                        dataset_fr_form.onsubmit = forward_request;
+                        
+                        function forward_request() {
+                          var inputs = document.getElementById("occurrences_en_form").elements;
+                          var search = inputs[0].value
+                          var out = "http://explorer.canadensys.net/occurrences/search?taxa="+search+"&lang=en#tab_mapView"
+                          window.location = out;
+                          return false;
+                        }
+                      </script>
+                    </div>
+                    <div class="fr col-xs-12">
+                      <form action="http://explorer.canadensys.net/occurrences/search?lang=fr#tab_mapView" method="get" role="search" id="occurrences_fr_form">
+                        <div class="text-center">
+                          <span class="fr col-sm-9 col-xs-12">
+                            <input type="text" class="form-control input-lg" placeholder="Nom scientifique, nom vernaculaire, etc." name="taxa">
+                          </span>
+                          <button class="btn btn-lg btn-secondary btn-search" type="submit" title="Recherche"  data-toggle="tooltip" data-placement="bottom" data-original-title="Recherche simple"><span class="glyphicon glyphicon-search"></span></button>
+                          <a class="btn btn-lg btn-secondary btn-search" role="button" href="http://explorer.canadensys.net/search?lang=fr#tab_advanceSearch" data-toggle="tooltip" data-placement="bottom" title="Recherche Avancée" data-original-title="Recherche avancée"><span class="glyphicon glyphicon-plus"></span></a>
+                        </div>
+                      </form>
+                      <script>
+                        var dataset_fr_form = document.getElementById("occurrences_fr_form");
+                        dataset_fr_form.onsubmit = forward_request;
+                        
+                        function forward_request() {
+                          var inputs = document.getElementById("occurrences_fr_form").elements;
+                          var search = inputs[0].value
+                          var out = "http://explorer.canadensys.net/occurrences/search?taxa="+search+"&lang=fr#tab_mapView"
+                          window.location = out;
+                          return false;
+                        }
+                      </script>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div id="footer" class="col-xs-12">
+        <div class="col-xs-10 col-xs-offset-1 ">
+            <div class="container-fluid">
+                <div class="row-fluid">
+                    <div id="fConnect" class="col-sm-2 col-xs-12">
+                        <div class="emptyspace span12"></div>
+                        <div class="col-xs-12">
+                            <a href="https://github.com/canadensys/" target="_blank"><img class="img-responsive icon-footer" src="http://layout.canadensys.net/common/images/icons/github_black_white_64.png" alt="GitHub"></a>
+                        </div>
+                        <div class="col-xs-12">
+                            <a href="https://www.facebook.com/canadensys/" target="_blank"><img class="img-responsive icon-footer" src="http://layout.canadensys.net/common/images/icons/facebook_black_white_64.png" alt="Facebook"></a>
+                        </div>
+                        <div class="col-xs-12">
+                            <a href="https://twitter.com/Canadensys" target="_blank"><img class="img-responsive icon-footer" src="http://layout.canadensys.net/common/images/icons/twitter_black_white_64.png" alt="Twitter"></a>
+                        </div>
+                        <div class="emptyspace col-xs-12"></div>
+                    </div>
+                    <div id="fLicense" class="col-sm-10 col-xs-12">
+                        <div class="col-left-center">
+                            <span class="col-left-center-p">
+                                <div class="row-fluid">
+                                    <div class="emptyspace col-xs-12"></div>
+                                    <div class="col-xs-12">
+                                        <div class="row-fluid fr">
+                                            <div class="col-xs-6  text-center">
+                                                <a class="fr" href="http://www.canadensys.net/about/norms?lang=fr">
+                                                  <img class="img-responsive icon-footer" src="http://layout.canadensys.net/common/images/icons/cite_us_black_white_64_2.png" alt="Cite us">
+                                                  <p>Comment nous citer</p>
+                                                </a>
+                                            </div>
+                                            <div class="col-xs-6  text-center">
+                                                <a class="fr" href="http://www.canadensys.net/about/contact?lang=fr">
+                                                  <img class="img-responsive icon-footer" src="http://layout.canadensys.net/common/images/icons/mail_black_white_64.png" alt="Contact us">
+                                                  <p>Contactez nous</p>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="row-fluid en">
+                                            <div class="col-xs-6  text-center">
+                                                <a class="en" href="http://www.canadensys.net/about/norms?lang=en">
+                                                  <img class="img-responsive icon-footer" src="http://layout.canadensys.net/common/images/icons/cite_us_black_white_64_2.png" alt="Cite us">
+                                                  <p>How to cite us</p>
+                                                </a>
+                                            </div>
+                                            <div class="col-xs-6  text-center">
+                                                <a class="en" href="http://www.canadensys.net/about/contact?lang=en">
+                                                  <img class="img-responsive icon-footer" src="http://layout.canadensys.net/common/images/icons/mail_black_white_64.png" alt="Contact us">
+                                                  <p>Contact us</p>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="emptyspace col-xs-12"></div>
+                                    <div class="row-fluid fr">
+                                        <div class="col-sm-6 col-xs-12">
+                                            <div class="col-md-4 col-xs-12">
+                                                <a class="cc_logo" href="http://creativecommons.org/publicdomain/zero/1.0/deed.fr" title="CC0 1.0 universel Transfert au domaine public"><img src="http://layout.canadensys.net/common/images/icons/cc0-logo.png" alt="cc0-logo"></a>
+                                            </div>
+                                            <div class="col-md-8 col-xs-12 center">
+                                                <p>La plupart des participants de Canadensys ont transféré leurs données au <a href="http://creativecommons.org/publicdomain/zero/1.0/deed.fr">domaine public</a>.</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-xs-12">
+                                            <div class="col-md-4 col-xs-12">
+                                                <a rel="license" class="cc_logo" href="http://creativecommons.org/licenses/by/3.0/deed.fr" title="Creative Commons Attribution 3.0 non transposé"><img src="http://layout.canadensys.net/common/images/icons/cc-by-logo.png" alt="cc-by-logo"></a>
+                                            </div>
+                                            <div class="col-md-8 col-xs-12">
+                                                <p>Tous les autres contenus de ce site opèrent sous <a rel="license" href="http://creativecommons.org/licenses/by/3.0/deed.fr">CC-BY</a>, sauf pour le <a href="http://www.canadensys.net/documents?lang=fr">logo de Canadensys</a>, qui est sous copyright.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row-fluid en">
+                                        <div class="col-sm-6 col-xs-12">
+                                            <div class="col-md-4 col-xs-12">
+                                                <a class="cc_logo" href="http://creativecommons.org/publicdomain/zero/1.0/deed.en" title="CC0 1.0 universel Transfert au domaine public"><img src="http://layout.canadensys.net/common/images/icons/cc0-logo.png" alt="cc0-logo"></a>
+                                            </div>
+                                            <div class="col-md-8 col-xs-12 center">
+                                                <p>Most Canadensys participants have dedicated their data to the <a href="http://creativecommons.org/publicdomain/zero/1.0/">public domain</a>.</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-xs-12">
+                                            <div class="col-md-4 col-xs-12">
+                                                <a rel="license" class="cc_logo" href="http://creativecommons.org/licenses/by/3.0/deed.en" title="Creative Commons Attribution 3.0 non transposé"><img src="http://layout.canadensys.net/common/images/icons/cc-by-logo.png" alt="cc-by-logo"></a>
+                                            </div>
+                                            <div class="col-md-8 col-xs-12">
+                                                <p>All other content on this website is licensed under <a rel="license" href="http://creativecommons.org/licenses/by/3.0/">CC-BY</a>, except for the copyrighted <a href="http://www.canadensys.net/documents">Canadensys logo</a>.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="emptyspace col-xs-12"></div>
+                                </div>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!--/#footer -->
+
+    <script src="http://layout.canadensys.net/common/js/jquery-3.2.1.min.js"></script>
+    <script src="http://layout.canadensys.net/common/js/js.cookie-2.1.4.min.js"></script>
+    <script src="http://layout.canadensys.net/common/js/jquery-ui-1.12.1/jquery-ui.min.js"></script>
+    <script src="http://layout.canadensys.net/common/bootstrap3/js/bootstrap.js"></script>
+    <script src="http://layout.canadensys.net/common/js/data_page.js"></script>
+  </body>
+</html>
